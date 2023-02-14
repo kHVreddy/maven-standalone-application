@@ -1,0 +1,14 @@
+1. You need to connect to server to server, Assume ServerA and ServerB. Connect ServerB from ServerA. Connect with Password and without Password. Try to install httpd application in ServerB
+2. You need to prepare a shell script on Installation of application Httpd by Checking the Memory and Storage of your linux system. Prerequsites Your storage is morethan 2Gb and memory 500mb.
+3. You need to prepare shellscript on && and || statements, You can take example as Os-Distribution.
+4. Prepare a script on CPU Utilization and create a crontab for that script and run it.
+5. You need to create a user and create passwd to user, Give sudo Previleges to him, Create a File(insert some data in file) and give only read permissions to all users, Create a directory and move that file to that directory.
+6. create a script using Run Time Variable.(I want square of given value and after getting output it should ask me to continue or not)
+7. Create IAM User and add inline policy to the user.
+8. Create S3 Bucket Volume, Create Bucket Policy and mount it to your Ec2 Instnaces
+9. Create AMI and Snapshot for EBS Volume.
+10.Create VPC in AWS, i want one private subent and one public subnet. launch 2 instances one in public and one in private subnets. connect to Private Server.
+11.Create a Cloudwatch alarm for particular instance.
+12.Create EFS and Mount it to Your Instance.
+13.Create a Shell Script Using Positional Parameter
+14.Create IAM Role and attach it to EC2 Server.
