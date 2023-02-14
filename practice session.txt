@@ -1,0 +1,261 @@
+LINUX COMMANDS
+----------------
+who am i --> To see the current logged-in User.
+
+pwd --> Full path name of your current directory.
+
+cd --> To change the current working dirctory.
+
+cat --> To read the data from the file and gives 
+thier content as output.
+
+clear --> clearing the teriminal
+
+sudo -i --> to change to root user.
+
+su username --> to change to other user.
+
+useradd username --> to add new user.
+
+passwd username --> To give password to user.
+
+userdel username --> To delete the users.
+
+groupadd groupname --> To add new group.
+
+usermod -a -G groupname username --> To add users in group.
+
+groupdel groupname --> To delete the groups
+
+gpasswd --delete user group --> to delete user from group.
+
+cat /etc/passwd--> To see no users in server.
+
+cat /etc/group --> To see no groups in server.
+
+touch  filename --> To create new empty file
+
+mkdir dirname --> To create new directory
+
+rmdir dirname --> To delete empty dirctory.
+
+rm -r dirname --> To delete non-empty dirctory.
+
+rm filename --> To delete empty file.
+
+rm -f filename --> To non-empty File.
+
+id username/groupname --> To print particular user or group id's
+
+cp filename pathname --> To copy files form one path to another path.
+
+mv filename pathname --> To move files form one path to another path. 
+(OR)
+mv oldfilename newfilename --> To change filename also.
+
+hostnamectl set-hostname hostname --> To set new hostname
+
+cat /etc/os-release --> To find the OS name and Version of Linux.
+
+vi /etc/sudoers --> To give sudoers permissions to the users.
+
+man commnad_name --> To give detail info of particular command.
+
+stat filename --> Give info about the file and filesystem.
+
+lsof -u username --> return the user proccesses that are actively using a filesystem. (list open files)
+
+free -m --> To check memory status
+
+df -h --> To check amount of free space that is left on a file system.
+
+history --> To list previous commands.
+
+getent --> To print user and groups 
+
+vi /etc/ssh/sshd_config --> To make configurations for users.
+
+systemctl restart sshd --> Restarting sshd file to update the changes.
+
+rpm -qa --> To see the number of applications installed in your system.
+
+rpm --> Redhat Package Management
+
+vi --> To create and edit files
+--
+Esc i --> Insert Mode
+Esc a --> start writing from the current position
+Esc I --> Start writing from begining
+Esc o --> Insert new line below the current line
+Esc O --> Insert new line above the current line
+Esc l --> To move cursor one charcter right
+Esc h --> To   "	"	"	left
+Esc j --> To 	"	"	"	down
+Esc k --> To 	"	"	"	up
+Esc w --> To 	" Next word
+Esc b --> To 	" one word back
+Esc $ --> To move ending charcter of line
+Esc ^ --> To 	" Starting 	"	"
+Esc H --> To move starting line of page
+Esc M --> To move middle line of page
+Esc G --> To move ending line of page
+
+Esc yy --> To copy a entire line
+Esc p --> To paste 
+Esc yw --> To copy a word
+Esc yl --> To copy a charcter
+Esc dd --> To delete a entire line
+Esc dw --> To delete a word
+Esc X --> To delete cursor before charcter
+Esc x --> To delete cursor position charcter
+Esc R --> To replace a line
+Esc r --> To replace a charcter
+Esc u --> To undo 
+
+Esc :se nu --> To list line numbers
+Esc :se nonu --> To unlist the line numbers
+Esc :wq! --> To save changes in file
+Esc :q! --> To save without chages in file
+
+ls :- list the content of your current dir
+---
+some options with ls are:-
+1. ls -l --> To long list format
+2. ls -a --> All files including hidden files or dot files
+3. ls -F --> It is used to classify the directories
+4. ls -i --> To list Inode number
+5. ls -R --> To print all directories and subdirectories
+6. ls -r --> To display in reverse order
+7. ls -t --> To sort by access time
+8. ls -d --> To show names of directories and not thier content
+9. ls -h --> To indicate human readable
+10. ls -S --> To sort files by file size.
+11. ls <startingletter*> --> list files starting letter of a file
+12. ls <endingletter*> --> list files ending letter of a file
+13. ls <*anyletter*> --> List files any letter of a file
+14. ls ? --> list single lettered file
+15. ls ?? --> list double lettered file
+
+chmod:- (change mode)
+------
+There are three different users in linux
+1. users (u)
+2. group (g)
+3. others (o)
+
+The file permissions are also three types in linux
+1. read(r)
+2. write(w)
+3. execute(x)
+
+We have to give permissions to each file and directory that we required.
+
+Example:-
+---------
+1. Giving all permissions to all users
+chmod u=rwx,g=rwx,o=rwx <filename>
+or
+chmod 777 <filename>
+or
+chmod +rwx <filename>
+
+2. giving only read permissions to all users
+chmod u=r,g=r,o=r <filename>
+or
+chmod 444 <filename>
+or
+chmod +r <filename>
+
+
+chown:- (change ownership)
+------
+--> chown <owner_name> <filename>
+
+chgrp:- (Change group ownership)
+------
+--> chgrp <groupowner_name> <filename>
+
+ps --> used to display or view information related to the processes running in a Linux System.
+
+kill --> it sends a signal to processes,causing them to teriminate
+
+Yum(Yellow Updater Modifier) --> It is used to install, update the application
+
+echo --> It will print messages which you given
+
+
+
+How to connect to Server To Server
+----------------------------------
+let me try like this:
+--> There are 2 server called Server1 and Server2
+--> Know i am connecting server2 in server1
+--> Ifconfig command in Server2
+	--> ifconfig
+--> In server2 we have to edit file 
+	--> vi /etc/ssh/sshd_config
+--> Do change in password authentication no to yes
+--> Set password for root user
+--> Save the file and restart the sshd
+	--> systemctl restart sshd
+--> know go to server1
+	--> ssh <private ip>
+ 
+(OR)
+
+--> In this we are connecting server 1 in server2
+--> In server1 run command
+	--> ssh-keygen
+--> Keepon entering and finally keygen will create.
+--> In the path we have some key
+	--> cat /root/.ssh/id_rsa.pub
+--> Copy that keygen 
+
+--> Go to the path 
+	--> cd /root/.ssh
+--> Here there will be a authorized_keys and edit
+	--> vi authorized_keys
+--> We have copied the key-gen from server1 and paste the here
+--> know take server1 privateip and go to server2
+	--> ssh <privateip>
+--> like this we can connect server to server.
+
+
+
+Mounting S3 Bucket to EC2 instance using IAM role
+--------------------------------------------------
+--> Create new instance
+--> Create new S3 bucket
+--> Create new IAM role
+--> In IAM rolewe have to give access to S3 full and Ec2 full
+--> Goto EC2 and selet Instance and click on Actions
+--> Click on Security and click on Modify IAM roles
+--> Click on Modify Roles
+
+--> Connect server to putty
+--> Run commands
+	--> sudo -i
+	--> sudo yum update -y
+	--> install aws cli
+	--> aws s3 ls --> To no of buckets
+	--> aws s3 mb s3://<bucketname>  --> To create new bucket
+	--> aws s3 rb s3://<bucketname>  --> To delete empty bucket
+	--. aws s3 rb s3://bucket-name --force --> To delete  non-empty bucket forcelly 
+	--> aws s3 rm s3://<bucketname>  --> To delete objects
+	--> aws s3 ls s3://<bucketname>  --> To list objects in bucket
+	--> aws s3 rm s3://bucket-name/example/filename.txt --> To delete objects in bucket
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
